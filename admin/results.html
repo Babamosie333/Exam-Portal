@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results — Admin</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-mark">Admin Portal</div>
+        <h2>MCQ Platform</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="nav-section">Main</span>
+        <a href="/admin/dashboard.html"><span class="nav-icon">◈</span> Dashboard</a>
+        <span class="nav-section">Content</span>
+        <a href="/admin/subjects.html"><span class="nav-icon">◉</span> Subjects</a>
+        <a href="/admin/tests.html"><span class="nav-icon">◎</span> Tests</a>
+        <a href="/admin/questions.html"><span class="nav-icon">◇</span> Questions</a>
+        <a href="/admin/import.html"><span class="nav-icon">⊞</span> Excel Import</a>
+        <span class="nav-section">Reports</span>
+        <a href="/admin/results.html" class="active"><span class="nav-icon">◑</span> Results</a>
+      </nav>
+      <div class="sidebar-footer"><a href="/">← Student Site</a></div>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div class="topbar-left">
+          <span class="topbar-label">Reports</span>
+          <h1>Student Results</h1>
+        </div>
+      </div>
+      <div class="admin-body">
+        <div class="filter-row" style="margin-bottom:1.5rem;">
+          <div class="form-group">
+            <label>Filter by Subject</label>
+            <select id="subjectFilter"><option value="">All Subjects</option></select>
+          </div>
+          <div class="form-group">
+            <label>Filter by Test</label>
+            <select id="testFilter"><option value="">All Tests</option></select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student</th><th>Mobile</th><th>Subject</th><th>Test</th>
+                <th>Score</th><th>%</th><th>Correct</th><th>Wrong</th><th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/admin/js/admin-api.js"></script>
+  <script src="/admin/js/results.js"></script>
+</body>
+</html>

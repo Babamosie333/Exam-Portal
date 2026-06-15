@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tests — Admin</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-mark">Admin Portal</div>
+        <h2>MCQ Platform</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="nav-section">Main</span>
+        <a href="/admin/dashboard.html"><span class="nav-icon">◈</span> Dashboard</a>
+        <span class="nav-section">Content</span>
+        <a href="/admin/subjects.html"><span class="nav-icon">◉</span> Subjects</a>
+        <a href="/admin/tests.html" class="active"><span class="nav-icon">◎</span> Tests</a>
+        <a href="/admin/questions.html"><span class="nav-icon">◇</span> Questions</a>
+        <a href="/admin/import.html"><span class="nav-icon">⊞</span> Excel Import</a>
+        <span class="nav-section">Reports</span>
+        <a href="/admin/results.html"><span class="nav-icon">◑</span> Results</a>
+      </nav>
+      <div class="sidebar-footer"><a href="/">← Student Site</a></div>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div class="topbar-left">
+          <span class="topbar-label">Content</span>
+          <h1>Tests</h1>
+        </div>
+        <button class="btn btn-primary" id="addBtn">+ Add Test</button>
+      </div>
+      <div class="admin-body">
+        <div id="alert"></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Title</th><th>Subject</th><th>Duration</th><th>Questions</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="modal" class="modal-overlay hidden">
+    <div class="modal">
+      <h3 class="modal-title" id="modalTitle">Add Test</h3>
+      <form id="testForm">
+        <input type="hidden" id="testId">
+        <div class="form-group">
+          <label>Subject</label>
+          <select id="subjectId" required></select>
+        </div>
+        <div class="form-group">
+          <label>Test Title</label>
+          <input type="text" id="title" placeholder="e.g. Chapter 1 — Algebra" required>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="description" rows="2" placeholder="Optional description"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Duration (minutes)</label>
+          <input type="number" id="durationMinutes" min="1" value="30" required>
+        </div>
+        <div class="form-group">
+          <label style="display:flex;align-items:center;text-transform:none;letter-spacing:0;">
+            <input type="checkbox" id="isActive" checked> Active
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Test</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/admin/js/admin-api.js"></script>
+  <script src="/admin/js/tests.js"></script>
+</body>
+</html>

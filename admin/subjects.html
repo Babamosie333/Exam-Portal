@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subjects — Admin</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-mark">Admin Portal</div>
+        <h2>MCQ Platform</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <span class="nav-section">Main</span>
+        <a href="/admin/dashboard.html"><span class="nav-icon">◈</span> Dashboard</a>
+        <span class="nav-section">Content</span>
+        <a href="/admin/subjects.html" class="active"><span class="nav-icon">◉</span> Subjects</a>
+        <a href="/admin/tests.html"><span class="nav-icon">◎</span> Tests</a>
+        <a href="/admin/questions.html"><span class="nav-icon">◇</span> Questions</a>
+        <a href="/admin/import.html"><span class="nav-icon">⊞</span> Excel Import</a>
+        <span class="nav-section">Reports</span>
+        <a href="/admin/results.html"><span class="nav-icon">◑</span> Results</a>
+      </nav>
+      <div class="sidebar-footer"><a href="/">← Student Site</a></div>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div class="topbar-left">
+          <span class="topbar-label">Content</span>
+          <h1>Subjects</h1>
+        </div>
+        <button class="btn btn-primary" id="addBtn">+ Add Subject</button>
+      </div>
+      <div class="admin-body">
+        <div id="alert"></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Name</th><th>Description</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="modal" class="modal-overlay hidden">
+    <div class="modal">
+      <h3 class="modal-title" id="modalTitle">Add Subject</h3>
+      <form id="subjectForm">
+        <input type="hidden" id="subjectId">
+        <div class="form-group">
+          <label>Subject Name</label>
+          <input type="text" id="name" placeholder="e.g. Mathematics" required>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="description" rows="3" placeholder="Brief description (optional)"></textarea>
+        </div>
+        <div class="form-group">
+          <label style="display:flex;align-items:center;text-transform:none;letter-spacing:0;">
+            <input type="checkbox" id="isActive" checked> Active
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Subject</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/admin/js/admin-api.js"></script>
+  <script src="/admin/js/subjects.js"></script>
+</body>
+</html>
